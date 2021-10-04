@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap');
+
+@keyframes rainbow-road {
+    0%,
+    100% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+}
+
+@keyframes rainbow-animation 
+{
+    
+}
+
+.index-content-div {
+    min-width: 1024px;
+    width: 100vw;
+    min-height:768px;
+    height: 100vh;
+    position: relative;
+    left: 50%;
+    margin: 0;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+}
+
+#wrapper>* {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 40px;
+    font-family: 'Libre Franklin', sans-serif, 'Franklin Gothic Medium';
+}
+
+#enter-btn {
+    color: white;
+    font-size: 70px;
+    text-decoration: none;
+    z-index: 1;
+    text-shadow: white 0 0 10px;
+}
+
+#enter-btn:hover {
+    background: linear-gradient(to right, #EC8AA5, #A60303, #D99036, #0A7FAC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation-name: rainbow-road;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    background-size: 400% 100%;
+    text-shadow: none;
+    cursor: url(/images/radiohead-cursor-smol.png) 45 36, auto;
+}
+
+.text-p {
+    padding-top: 70px;
+}
+
+.text-p>* {
+    margin: 5px;
+    padding-left: 40px;
+}
+
+#p-1 {
+    color: #EC8AA5;
+}
+
+#p-2 {
+    color: #A60303;
+}
+
+#p-3 {
+    color: #D99036;
+    width: 90px;
+}
+
+#p-3:hover {
+    color: white;
+    text-shadow: white 0 0 10px;
+    cursor: url(/images/radiohead-cursor-smol.png) 45 36, auto;
+
+}
+#credits-img {
+    display: none;
+}
+
+#p-3:hover ~ #credit-box {
+    display: block;
+    position: fixed;
+    animation-name: credit-animation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#p-4 {
+    color: #0A7FAC;
+}
+
+#enter-btn:hover+.text-p>* {
+    color: #FFFFFF;
+    text-shadow: white 0 0 10px;
+}
+
+#rainbowhead {
+    height: 160%;
+}
+
+#credit-box {
+    display: none;
+    position: static;
+    color: white;
+    top: 100px;
+    text-align: center;
+    width: fit-content;
+}
+
+@keyframes credit-animation {
+    from {
+        right: -500px;
+        opacity: 0%;
+    }
+    
+    to {
+        right: 50px;
+        opacity: 100%;
+    }
+}
