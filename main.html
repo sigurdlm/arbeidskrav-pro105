@@ -8,36 +8,83 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+
     <div class="main-content-div">
-        
+
+    <!-- 
+        Main content div fungerer som en wrapper for resten av koden.
+        Det meste av div'er posisjoneres i henhold til denne div'en 
+    -->
+
+        <!--Trykk på Radiohead-logoen for å få en live-konsert opplevelse!-->
         <input type="checkbox" id="live-div">
-        <label for="live-div" id="live-div"><img src="images/radiohead-logo.png" alt=""></label>
-        <div id="hidden-live" class="hidden-element">
+        <label for="live-div" id="live-div">
+            <img src="images/radiohead-logo.png" alt="Radiohead logo, button for live concert">
+        </label>
+        <div id="hidden-live" class="hidden-element hidden-live">
             <iframe width="800" height="600" src="https://www.youtube.com/embed/DWuAn6C8Mfc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
+        <!--Trykk på bildet av Radiohead sine medlemmer for å få informasjon om de!-->
         <input type="checkbox" id="backstage-div">
-        <label for="backstage-div" id="backstage-div"><img src="images/radioheader.jpg" alt="Radiohead header image"></label>
-        <div id="hidden-backstage" class="hidden-element">      
+        <label for="backstage-div" id="backstage-div">
+            <img src="images/radioheader.jpg" alt="Radiohead header image">
+        </label>
+
+        <!-- Her begynner skjult boks med backstage info -->
+        <div id="hidden-backstage" class="hidden-element hidden-backstage">      
             <div id="backstage-content">
-                <h1>Om medlemmene</h1>
-
-                <h2>Vokalist</h2>
-                <h3>Thom Yorke</h3> <br>
-                
-                <h2>Gitar<h2>
-                <h3>Jonny Greenwood</h3>
-                <h3>Ed O'Brien</h3> <br>
-
-                <h2>Bass og trommer</h2>
-                <h3>Collin Greenwood</h3>
-                <h3>Phil Selway</h3> <br>
+                <div class="about-artists">
+                    <h1>Thom Yorke</h1>
+                    <ul>Instruments: 
+                        <br><br>
+                        <li>Vocal</li>  
+                        <li>Guitar</li>
+                        <li>Keyboard</li>
+                    </ul>
+                </div>
+                <div class="about-artists">
+                    <h1>Jonny Greenwood</h1>
+                    <ul>Instruments: 
+                        <br><br>
+                        <li>Vocal</li>  
+                        <li>Guitar</li>
+                        <li>Keyboard</li>
+                    </ul>
+                </div>
+                <div class="about-artists">
+                    <h1>Colin Greenwood</h1>
+                    <ul>Instruments: 
+                        <br><br>
+                        <li>Bass</li>  
+                        <li>Composition</li>
+                    </ul>
+                </div>
+                <div class="about-artists">
+                    <h1>Ed O'Brien</h1>
+                    <ul>Instruments:
+                        <br><br>
+                        <li>Guitar</li>  
+                        <li>Vocal</li>
+                    </ul>
+                </div>
+                <div class="about-artists">
+                    <h1>Philip Selway</h1>
+                    <ul>Instruments:
+                        <br><br>
+                        <li>Drums</li>  
+                        <li>Percussion</li>
+                        <li>Vocal</li>
+                    </ul>
+                </div>
             </div> 
         </div>
 
-        
-    </div>
-    
+    <!-- Knapp med animasjon som peker ned mot timelinen -->
+        <img src="images/double-down-arrow.png" alt="Down arrow" id="down-arrow">
+    </div> 
+
+    <!-- Her begynner timelinen -->
     <div class="timeline-div">
         <div class="container left-side">
             <div class="timeline-content">
@@ -99,7 +146,6 @@
                 <p>In 2003, Radiohead released "Hail to the Thief." their 6th studio album. It contains a disjointed collection of songs with more of a return to their earlier style of rock. Written partly in response to the George W. Bush's War on Terror, "Hail to the Thief" is at times both dreamy and ominously uneasy.</p>
                 <iframe src="https://open.spotify.com/embed/album/5mzoI3VH0ZWk1pLFR6RoYy" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 <author class="source">Source: <a href="https://en.wikipedia.org/wiki/Radiohead">https://en.wikipedia.org/wiki/Radiohead</a></author>
-               
             </div>
         </div>
         <div class="container left-side">
@@ -113,8 +159,8 @@
         <div class="container right-side">
             <div class="timeline-content">
                 <h3>2011, 30 million albums sold worldwide</h3>
-                <p>By 2011 Radiohead had sold more than 30 million albums worldwid</p>
-                <author class="source">Source: <a href=""></a></author>
+                <p>By 2011 Radiohead had sold more than 30 million albums worldwide</p>
+                <author class="source">Source: <a href="https://www.timetoast.com/timelines/the-history-of-radiohead">https://www.timetoast.com/timelines/the-history-of-radiohead</a></author>
             </div>
         </div>
         <div class="container left-side">
@@ -122,7 +168,7 @@
                 <h3>2011, The King of Limbs</h3>
                 <p>Radiohead relased "The King of Limbs" February, 2011. Their 8th studio album, it initially divided fans, but now enjoys acclaim in Radiohead's canon.</p>
                 <iframe src="https://open.spotify.com/embed/album/3P17levwUPzmFfLYdAK3A7" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                <author class="source">Source: <a href=""></a></author>
+                <author class="source">Source: <a href="https://www.timetoast.com/timelines/the-history-of-radiohead">https://www.timetoast.com/timelines/the-history-of-radiohead</a></author>
             </div>
         </div>
         <div class="container right-side">
@@ -130,32 +176,18 @@
                 <h3>2016, A Moon Shaped Pool</h3>
                 <p>Radiohead released their ninth and latest album on May 8, 2016. "A Moon Shaped Pool" came out after the release of two surprise singles. Fans received a long-awaited gift on this album, a proper, studio recording of the longtime fan favorite "True Love Waits." Critically acclaimed, "A Moon Shaped Pool" sits at the top of a distinguished line of albums, heralding what's to come for Radiohead in the future.</p>
                 <iframe src="https://open.spotify.com/embed/album/2ix8vWvvSp2Yo7rKMiWpkg" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                <author class="source">Source: <a href=""></a></author>
+                <author class="source">Source: <a href="https://www.timetoast.com/timelines/the-history-of-radiohead">https://www.timetoast.com/timelines/the-history-of-radiohead</a></author>
             </div>
         </div>
-     
         <div class="container left-side">
             <div class="timeline-content">
-                <h3>2018, What's next?</h3>
+                <h3>2018, And beyond</h3>
                 <p>Radiohead continues to record music, tour, and delight fans around the world. Members of the band have branched off into solo releases, movie soundtracks, and composing. Fans wait eagerly for news from the band, particularly for inklings of a new album.</p>
-                <author class="source">Source: <a href=""></a></author>
+                <author class="source">Source: <a href="https://www.timetoast.com/timelines/the-history-of-radiohead">https://www.timetoast.com/timelines/the-history-of-radiohead</a></author>
             </div>
         </div>
-
-    
-    <!--
-
-        To do:
-        Timeline
-            -5 px linje i midten, med noe style (shadows are are cool u kno)
-                - Prøve å style horisontale linjer ut med css?
-                    -w3schools timeline
-        Info for backstage og crowd,
-        Spotify API
-            -iframes, le google
-        Fikse hover, finnes det noe bedre?
-
-
-    -->
+        
+        <!-- Knapp som leder tilbake til index-siden -->
+        <a href="index.html" id="back-to-index-a"><img src="images/back-arrow.png" id="back-button" alt="Back arrow"></a>
 </body>
 </html>

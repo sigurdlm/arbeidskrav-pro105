@@ -1,20 +1,7 @@
+/*Vi importerte en font fra google som lignet på den som ble brukt på In Rainbows-plata.*/
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap');
 
-@keyframes rainbow-road {
-    0%,
-    100% {
-        background-position: 0 0;
-    }
-    50% {
-        background-position: 100% 0;
-    }
-}
-
-@keyframes rainbow-animation 
-{
-    
-}
-
+/*Styling på hoved boksen i index.*/
 .index-content-div {
     min-width: 1024px;
     width: 100vw;
@@ -28,12 +15,14 @@
     overflow: hidden;
 }
 
+/*Bakgrunnsfarge + fjerning av overflow, samt posisjonering for wrapper.*/
 body {
     position: relative;
     background-color: rgb(0, 0, 0);
     overflow: hidden;
 }
 
+/*Gjør at alle elementene inni wrapper har en bestemt position, border, padding, font-size og font familie.*/
 #wrapper>* {
     position: absolute;
     top: 30%;
@@ -44,6 +33,7 @@ body {
     font-family: 'Libre Franklin', sans-serif, 'Franklin Gothic Medium';
 }
 
+/*Dette er stylingen til enter-knappens utgangspunkt*/
 #enter-btn {
     color: white;
     font-size: 70px;
@@ -52,6 +42,12 @@ body {
     text-shadow: white 0 0 10px;
 }
 
+/*On hover setter bakgrunnen til (linear-gradient)regnbuefarge
+og animerer den frem og tilbake. -webkit-background-clip og 
+background-clip viser så bakgrunnen som tekst i animasjonen(gitt at man
+setter color til transparent), 
+dermed blir kun texten animert som en regnbue.
+Pekeren blir også endret til et bilde av Radiohead logoen. */
 #enter-btn:hover {
     background: linear-gradient(to right, #EC8AA5, #A60303, #D99036, #0A7FAC);
     -webkit-background-clip: text;
@@ -88,16 +84,17 @@ body {
     width: 90px;
 }
 
+/*On hover:Endrer pekeren til et bilde av Radiohead logoen*/
 #p-3:hover {
     color: white;
     text-shadow: white 0 0 10px;
     cursor: url(/images/radiohead-cursor-smol.png) 45 36, auto;
-
 }
+
 #credits-img {
     display: none;
 }
-
+/*Bruker pseudoklasser for å endre credit-box når man hovrer over p-3.*/
 #p-3:hover ~ #credit-box {
     display: block;
     position: fixed;
@@ -110,7 +107,7 @@ body {
 #p-4 {
     color: #0A7FAC;
 }
-
+/*Bruker pseudoklasser for å endre text-p når man hovrer over enter-btn.*/
 #enter-btn:hover+.text-p>* {
     color: #FFFFFF;
     text-shadow: white 0 0 10px;
@@ -129,6 +126,9 @@ body {
     width: fit-content;
 }
 
+/*Animasjoner*/
+
+/*Animasjonen under: vises når man hover'er over om.*/
 @keyframes credit-animation {
     from {
         right: -500px;
@@ -138,5 +138,16 @@ body {
     to {
         right: 50px;
         opacity: 100%;
+    }
+}
+
+/*Animasjonen under: Lager en regnbue-aktig animasjon kun på texten til "ENTER".*/
+@keyframes rainbow-road {
+    0%,
+    100% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
     }
 }

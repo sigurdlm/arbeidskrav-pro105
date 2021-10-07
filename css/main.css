@@ -2,47 +2,65 @@
 
 body {
     position: relative;
-    background-color: rgb(0, 0, 0);
+    background: linear-gradient(to bottom, #000000, #2E2E2E, #333333);
     width: 100vw;
-    height: 100vh;
     overflow-x: hidden;
 }
 
+/*Her styler vi main-content-div'en, gjør den relativ
+og alt inne i den som absolute.*/
 .main-content-div {
     flex-direction: row;
     width: 100vw;
     height: 100vh;
     position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-
-#header-image {
-    padding-top: 200px; 
-    left: 50%;    
-}
-
-#header-image > img{
-    display: flex;
-    transform: translateX(-50%);
-    width: 80vw;
 }
 
 .main-content-div >*{
     position: absolute;
 }
 
-.hidden-element {
-    display: none;
+/*Her styler vi og posisjonerer live-div'en.*/
+#live-div {
+    padding-top: 200px; 
+    left: 50%;    
+    position: relative;
 }
 
+#live-div >img {
+    width: 50vw;
+    transform: translateX(-50%);
+}
+
+/*Her styler vi den skjulte div'en som inneholder
+live-konsert fra Radiohead.*/
+#live-div:checked+label+#hidden-live {
+    display: flex;
+    z-index: 2;
+    animation-name: live-animation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#live-div:not(:checked)+label+#hidden-live {
+    display: flex;
+    z-index: 2;
+    animation-name: live-animation-unchecked;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+/*Div'ene under bilder av artistene og informasjon om de
+gjennom en skjult div.*/
 #backstage-div {
     padding-top: 200px; 
     left: 50%;   
     top: 5%; 
     position: relative;
-    justify-content: center;
+    z-index: 1;
+    margin: 0 auto;
 }
 
 #backstage-div > img {
@@ -51,104 +69,113 @@ body {
     box-shadow: #FF1000 10px 10px 0px;
 }
 
+/*Her oppretter vi en grid for å skille mellom artistenes
+informasjon, kolonnene er ikke like store grunnet at
+artistenes del av hovedbilde ikke er det.*/
+#backstage-content{
+    display: grid;
+    grid-template-columns: 22% 22.5% 19.5% 16.5% 19.5%;
+    width: 80vw;
+}
+
+/*Dette er stylingen til den skjulte backstage-div'en.*/
 #backstage-div:checked+label+#hidden-backstage {
     display: flex;
-    z-index: 3;
+    z-index: 0;
     animation-name: backstage-animation;
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
-#backstage-content{
-    display: block;
-    list-style-type: none;
-    margin-left: 20px;
-    padding: 5px;
-    color: white;
-}
-
-
-#live-div {
-    padding-top: 200px; 
-    left: 50%;    
-    position: relative;
-    justify-content: center;
-}
-
-#live-div >img {
-    width: 50vw;
-    transform: translateX(-50%);
-}
-
-#live-div:checked+label+#hidden-live {
+/*not() er ikke bra. Ganske mye bugs, men fungerer her.*/
+#backstage-div:not(:checked)+label+#hidden-backstage {
     display: flex;
-    z-index: 3;
-    animation-name: live-animation;
+    z-index: 0;
+    animation-name: backstage-animation-unchecked;
     animation-duration: 1s;
     animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    animation-fill-mode:forwards;
 }
 
+/*Dette er stylingen til teksten med info om artistene.*/
+.about-artists {
+    color: white;
+    font-family: 'Libre Franklin', sans-serif, 'Franklin Gothic Medium';
+}
+
+.about-artists > h1 {
+    font-size: 1em;
+    text-align: center;
+}
+
+/*Her gir vi en overordnet styling til alle de skjulte
+elementene med en klasse.*/
 .hidden-element {
+    display: none;
     position: absolute;
     left:50%;
     top:50%;
     transform: translateX(-50%)translateY(-50%);
-    width: 800px;
+    width: 80wh;
     height: 600px;
     background-color: #626262ef;
     box-shadow: black 0 0 10px;
-    border-radius: 20px;
-    border: solid black 1px;
 }
 
+.hidden-backstage {
+    width: 80vw;
+    max-height: 20vh;
+    box-shadow: white 10px 10px 0 0;
+}
+
+/*Her gis en liten subtil skygge til alle elementene vi 
+henter fra Spotify og Youtube.*/
 iframe {
     box-shadow: black 0px 0px 5px;
 }
 
+/*Vi bruker labels med input="checkbox" som en button. 
+Setter display:none; for å gjemme den unna, da den kun brukes 
+for å påvirke andre id'er/class'er.*/
 input {
     display: none;
 }
 
-@keyframes live-animation {
-    from{
-        top: -600px;
-    }
-    to {
-        left:50%;
-        top:50%;
-        transform: translateX(-50%)translateY(-50%);
-    }
+#backstage-div:not(:checked) ~ #down-arrow {
+    animation-name: hoverUpDown;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
 }
 
-@keyframes backstage-animation {
-    from{
-        left: 1824px;
-    }
-    to {
-        left:50%;
-        top:50%;
-        transform: translateX(-50%)translateY(-50%);
-    }
+#down-arrow {
+    width: 20%;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 30%;
 }
 
-/*
-    CSS-kode for timeline
+
+/* 
+Her starter stylingen for timelinen.
 */
+
 
 .timeline-div >* {
     box-sizing: border-box;
 }
 
+/*Dette er stylingen som setter rammene for hele timelinen.*/
 .timeline-div {
     position: relative;
     max-width: 80vw;
     min-width: 1024px;
     margin: 0 auto;
-    
 }
 
+/*Dette er stylingen for selve linjen i timelinen.*/
 .timeline-div::after {
     content: '';
     position: absolute;
@@ -160,15 +187,16 @@ input {
     margin-left: -3px;
 }
 
+/*Dette er stylingen for selve boksene med info.*/
 .container {
     padding: 10px 40px;
     position: relative;
     background-color: white;
     width: 50%;
-    margin: 20px 0 20px 0;
-    
+    margin: 20px 0 20px 0;    
 }
 
+/*Dette er stylingen for sirklene som er på linjene.*/
 .container::after {
     content: '';
     position: absolute;
@@ -182,19 +210,15 @@ input {
     z-index: 1;
 }
 
+/*Disse kodene posisjonerer hvert boks enten til
+venstre eller høyre.*/
 .left-side {
-    left: 0;
+    left: 0%;
     background-color: transparent;
 }
 
 .left-side > .timeline-content > h3 {
-    text-align: right ;
-}
-
-.source {
-    font-size: 10px;
-    font-size: italic;
-    float: right;
+    text-align: right;
 }
 
 .right-side {
@@ -206,6 +230,7 @@ input {
     text-align: left;
 }
 
+/*Lager pilen til midt-linjen fra timeline-content boksen på venstre side.*/
 .left-side::before {
     content: "";
     height: 0;
@@ -219,6 +244,7 @@ input {
     border-color: transparent transparent transparent white;
 }
 
+/*Samme som .left-side::before bare i andre veien.*/
 .right-side::before {
     content:"";
     height: 0;
@@ -232,14 +258,101 @@ input {
     border-color: transparent white transparent transparent;
 }
 
-
 .right-side::after {
     left: -16px;
 }
 
+/*Denne stylingen endrer på innholdet i boksene.*/
 .timeline-content {
     padding: 20px 30px;
     background-color: white;
     position: relative;
     box-shadow: #FF1000 10px 10px 0px;
+} 
+
+/*Dette er stylingen til kilde-teksten vår på hver boks.*/
+.source {
+    font-size: 10px;
+    font-size: italic;
+    float: right;
+}
+
+/*Denne stylingen er for tilbake-knappen*/
+#back-button {
+    position: fixed;
+    width: 3%;
+    left: 20px;
+    top: 20px;
+}
+
+
+/*
+Animasjoner
+*/
+
+
+/*Animasjonen under: Viser en youtube video av en radiohead konsert/live-session.Vises når checkbox på en label er :checked.*/
+@keyframes live-animation {
+    from{
+        top: -600px;
+    }
+    to {
+        justify-content:center;
+    }
+}
+
+/*Animasjonen under: Gjemmes når checkbox på en label er inaktiv (not(:checked))
+Problemet med dette er at når man laster inn siden så vises disse animasjonene som
+skjer når label'sene er unchecked fordi de labels-neutral-status er unchecked.
+Kunne løst dette med å påvirke animasjonen som fører boksen tilbake med en 
+input checkbox/label for div'ene som vises med @keyframes live-animation.*/
+@keyframes live-animation-unchecked {
+    from {
+        justify-content: center;
+    }
+    to {
+        
+        top: -600px;
+        
+    }
+}
+
+/*Animasjonen under: Samme type animasjon som live-animation.*/
+@keyframes backstage-animation {
+    from{
+    opacity: 0;
+    }
+    to {
+        left:50%;
+        top: 75vh;
+        justify-content: center;
+        opacity: 1;
+        z-index: 3;
+    }
+}
+
+/*Animasjonen under: Samme type animasjon som live-backstage-unchecked.*/
+@keyframes backstage-animation-unchecked {
+    from {
+        opacity: 1;
+        left: 50%;
+        top: 73%;
+        justify-content: center;
+    }
+    to {
+        left:50%;
+        top:50%;
+        justify-content: center;
+        opacity: 0;
+    }
+}
+
+/*Animasjonen under: Beveger pilen før timeline opp og ned.*/
+@keyframes hoverUpDown {
+    0%, 100% {
+        transform: translateY(0)translateX(-50%);
+    }
+    50% {
+        transform: translateY(-10px)translateX(-50%);
+    }
 }
