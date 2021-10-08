@@ -59,7 +59,7 @@ Pekeren blir også endret til et bilde av Radiohead logoen. */
     animation-iteration-count: infinite;
     background-size: 400% 100%;
     text-shadow: none;
-    cursor: url(/images/radiohead-cursor-smol.png) 45 36, auto;
+    cursor: url(../images/radiohead-cursor-smol.png) 45 36, auto;
 }
 
 .text-p {
@@ -88,7 +88,7 @@ Pekeren blir også endret til et bilde av Radiohead logoen. */
 #p-3:hover {
     color: white;
     text-shadow: white 0 0 10px;
-    cursor: url(/images/radiohead-cursor-smol.png) 45 36, auto;
+    cursor: url(../images/radiohead-cursor-smol.png) 45 36, auto;
 }
 
 #credits-img {
@@ -107,6 +107,7 @@ Pekeren blir også endret til et bilde av Radiohead logoen. */
 #p-4 {
     color: #0A7FAC;
 }
+
 /*Bruker pseudoklasser for å endre text-p når man hovrer over enter-btn.*/
 #enter-btn:hover+.text-p>* {
     color: #FFFFFF;

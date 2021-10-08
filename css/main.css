@@ -165,6 +165,7 @@ Her starter stylingen for timelinen.
 
 .timeline-div >* {
     box-sizing: border-box;
+    font-family: 'Libre Franklin', sans-serif, 'Franklin Gothic Medium';
 }
 
 /*Dette er stylingen som setter rammene for hele timelinen.*/
@@ -311,9 +312,7 @@ input checkbox/label for div'ene som vises med @keyframes live-animation.*/
         justify-content: center;
     }
     to {
-        
         top: -600px;
-        
     }
 }
 
