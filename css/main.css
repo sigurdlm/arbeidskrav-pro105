@@ -109,6 +109,11 @@ artistenes del av hovedbilde ikke er det.*/
     text-align: center;
 }
 
+.about-artists > h2 {
+    font-size: 0.9em;
+    text-align: center;
+}
+
 /*Her gir vi en overordnet styling til alle de skjulte
 elementene med en klasse.*/
 .hidden-element {
